@@ -9,7 +9,7 @@ $(document).ready(function () {
         goku: {
             name: "Goku",
             age: 37,
-            health: 0,
+            health: 100,
             attacks: [{
                 name: "spirit bomb",
                 attkPoints: 90
@@ -141,6 +141,7 @@ $(document).ready(function () {
         console.log(indexOne)
         let randomAttack = fighters.goku.attacks[indexOne].attkPoints;
         updatedHealth = fighters.naurto.health - randomAttack ;
+        
         console.log("Your attack power is" + " " + randomAttack)
         console.log("Your opponents new health" + " " + updatedHealth)
         console.log("You picked Goku")
@@ -151,6 +152,10 @@ $(document).ready(function () {
         console.log(indexTwo)
         let randomAttackTwo = fighters.naurto.attacks[indexTwo].attkPoints;
         updatedHealthTwo = fighters.goku.health - randomAttackTwo ;
+        if (updatedHealthTwo <= 0){
+            alert("you have won! to play again refresh the page")
+        }else
+        updatedHealthTwo--
         console.log("Your attack power is" + " " + randomAttackTwo)
         console.log("Your opponents new health" + " " + updatedHealthTwo)
         
