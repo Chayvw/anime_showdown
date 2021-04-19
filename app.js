@@ -146,16 +146,16 @@ $(document).ready(function () {
         console.log("You picked Goku")
         chooseGoku()
     }
-    // function attackCallTwo() {
-    //     let indexTwo = Math.floor(Math.random() * fighters.naurto.attacks.length)
-    //     console.log(indexTwo)
-    //     let randomAttackTwo = fighters.naurto.attacks[indexTwo].attkPoints;
-    //     updatedHealthTwo = fighters.goku.health - randomAttackTwo ;
-    //     console.log("Your attack power is" + " " + randomAttackTwo)
-    //     console.log("Your opponents new health" + " " + updatedHealthTwo)
+    function attackCallTwo() {
+        let indexTwo = Math.floor(Math.random() * fighters.naurto.attacks.length)
+        console.log(indexTwo)
+        let randomAttackTwo = fighters.naurto.attacks[indexTwo].attkPoints;
+        updatedHealthTwo = fighters.goku.health - randomAttackTwo ;
+        console.log("Your attack power is" + " " + randomAttackTwo)
+        console.log("Your opponents new health" + " " + updatedHealthTwo)
         
-    //     chooseNaurto()
-    // }
+        chooseNaurto()
+    }
 
     // function attackCallTwo(){
     //     let randomAttackTwo = fighters.naurto.attacks[1].attkPoints;
