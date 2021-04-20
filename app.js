@@ -15,7 +15,7 @@ $(document).ready(function () {
 
             {
                 name: "Ultra Instinct",
-                attkPoints: 80
+                attkPoints: 99
             },
 
             {
@@ -90,7 +90,7 @@ $(document).ready(function () {
             },
             {
                 name: "pervy clones",
-                defPoints: 60
+                defPoints: 98
             },
             {
                 name: "Def 3",
@@ -138,7 +138,7 @@ $(document).ready(function () {
 
 
         if (updatedHealth <= 0) {
-            alert("you have won! to play again refresh the page")
+            alert(" Congrats fighter you have won! Like to play again, just  refresh the page!")
 
         } else
             updatedHealth--
@@ -187,7 +187,7 @@ $(document).ready(function () {
 
         else 
         $("#gokus-defensive-choice").text("Your fighter chose:" + " " + randomDefenseName);
-        $("#gokus-health").text("this is your updated health:" + " " + newHealthOne);
+        $("#gokus-health").text("updated health:" + " " + newHealthOne);
 
 
     };
@@ -196,15 +196,17 @@ $(document).ready(function () {
     function defenseCallTwo() {
         let randomDefenseFinder = Math.floor(Math.random() * fighters.naurto.defense.length);
         let randomDefense = fighters.naurto.defense[randomDefenseFinder].defPoints;
-        
+        let randomDefenseNameTwo = fighters.naurto.defense[randomDefenseFinder].name;
         let findGokusAttack = Math.floor(Math.random() * fighters.goku.attacks.length)
         let gokuAttacksYou = fighters.goku.attacks[findGokusAttack].attkPoints;
         let newHealthTwo = gokuAttacksYou - randomDefense
-        if (newHealthTwo < 0) {
+        if (newHealthTwo <= 0) {
             alert("Unfortunately you are not the strongest fighter. Refresh and try again. Fighters current health" + " " + newHealthTwo)
         }
 
-        else $("#naurto-health").text("this is your updated health" + " " + newHealthTwo);
+        else
+        $("#naurto-defensive-choice").text("Your fighter chose:" + " " + randomDefenseNameTwo);
+         $("#naurto-health").text("this is your updated health" + " " + newHealthTwo);
 
     };
 
