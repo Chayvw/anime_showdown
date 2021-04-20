@@ -156,35 +156,35 @@ $(document).ready(function () {
         let indexOne = Math.floor(Math.random() * fighters.goku.attacks.length)
         console.log(indexOne)
         let randomAttack = fighters.goku.attacks[indexOne].attkPoints;
-        updatedHealth = fighters.naurto.health - randomAttack ;
-        
-        
-        if (updatedHealth <= 0){
+        updatedHealth = fighters.naurto.health - randomAttack;
+
+
+        if (updatedHealth <= 0) {
             alert("you have won! to play again refresh the page")
-        }else 
-        updatedHealth--
-        
+        } else
+            updatedHealth--
+
         console.log("Your attack power is" + " " + randomAttack)
         console.log("Your opponents new health" + " " + updatedHealth)
         console.log("You picked Goku")
         chooseGoku()
     }
-    
+
     function attackCallTwo() {
         let indexTwo = Math.floor(Math.random() * fighters.naurto.attacks.length)
         console.log(indexTwo)
         let randomAttackTwo = fighters.naurto.attacks[indexTwo].attkPoints;
-         let updatedHealthTwo = fighters.goku.health - randomAttackTwo ;
-        if (updatedHealthTwo <= 0){
+        let updatedHealthTwo = fighters.goku.health - randomAttackTwo;
+        if (updatedHealthTwo <= 0) {
             alert("you have won! to play again refresh the page")
-        }else if(updatedHealthTwo--){
+        } else if (updatedHealthTwo--) {
             console.log(updatedHealthTwo)
 
         }
         // updatedHealthTwo--
         console.log("Your attack power is" + " " + randomAttackTwo)
         console.log("Your opponents new health" + " " + updatedHealthTwo)
-        
+
         chooseNaurto()
     }
 
@@ -196,21 +196,30 @@ $(document).ready(function () {
     //     console.log(randomAttackTwo)
     //     console.log(updatedHealthTwo)
     // }
+
+    function defenseCallOne() {
+        let randomDefenseFinderOne = Math.floor(Math.random() * fighters.goku.defense.length);
+        let randomDefenseOne = fighters.goku.defense[randomDefenseFinderOne].defPoints;
+        console.log(randomDefenseOne)
+        let findNaurtosAttack = Math.floor(Math.random() * fighters.naurto.attacks.length)
+        console.log(findNaurtosAttack);
+        let naurtoAttacksYou = fighters.naurto.attacks[findNaurtosAttack].attkPoints;
+        let newHealthOne = naurtoAttacksYou - randomDefenseOne;
+        console.log("this is your updated health" + " " + newHealthOne);
+
+    }
     function defenseCallTwo() {
         let randomDefenseFinder = Math.floor(Math.random() * fighters.naurto.defense.length);
         let randomDefense = fighters.naurto.defense[randomDefenseFinder].defPoints;
         console.log(randomDefense)
-        let findGokusAttack =  Math.floor(Math.random() * fighters.goku.attacks.length)
+        let findGokusAttack = Math.floor(Math.random() * fighters.goku.attacks.length)
         console.log(findGokusAttack);
         let gokuAttacksYou = fighters.goku.attacks[findGokusAttack].attkPoints;
         let newHealthTwo = gokuAttacksYou - randomDefense
         console.log("this is your updated health" + newHealthTwo)
-        // let newHealthTwo =  Math.floor(Math.random() * fighters.goku.attacks.attkPoints[] - randomDefenseFinder);
 
-
-        // console.log(newHealthTwo)
-        // gokusMove()
     }
+
 
     // attackCallOne()
     // attackCallTwo()
@@ -263,14 +272,14 @@ $(document).ready(function () {
 
 
 
-   
-     
-        // chooseGoku()
-        // attackCallOne()
-        // console.log("You picked Goku")
-    
 
-$("#naurto-btn").on("click", attackCallTwo);
+
+    // chooseGoku()
+    // attackCallOne()
+    // console.log("You picked Goku")
+
+
+    $("#naurto-btn").on("click", attackCallTwo);
     // function attackCallTwo() {
     //     let randomAttackTwo = fighters.naurto.attacks[1].attkPoints;
     //     updatedHealthTwo = randomAttackTwo - fighters.goku.health;
@@ -279,31 +288,32 @@ $("#naurto-btn").on("click", attackCallTwo);
     //     console.log(randomAttackTwo)
     //     console.log(updatedHealthTwo)
     // }
-   
 
 
 
-// if (fighters.goku.health >= 0) {
-//     attackCallOne()
 
-// } else {
+    // if (fighters.goku.health >= 0) {
+    //     attackCallOne()
 
-// }
+    // } else {
 
-$("#deku-btn").on("click", function () {
-    chooseDeku()
-    console.log("You picked Deku")
-});
+    // }
 
-$(".attackOptions1").on("click", function () {
-    console.log("You picked an Attack")
-})
+    $("#deku-btn").on("click", function () {
+        chooseDeku()
+        console.log("You picked Deku")
+    });
 
-$(".defenseOptions1").on("click", function () {
-    console.log("You picked a counter")
-})
+    $(".attackOptions1").on("click", function () {
+        console.log("You picked an Attack")
+    })
 
-$("#goku-def-btn").on("click",defenseCallTwo)
+    $(".defenseOptions1").on("click", function () {
+        console.log("You picked a counter")
+    })
+
+    $("#naurto-def-btn").on("click", defenseCallTwo);
+    $("#goku-def-btn").on("click", defenseCallOne);
 
 
 
