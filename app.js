@@ -174,7 +174,7 @@ $(document).ready(function () {
         let indexTwo = Math.floor(Math.random() * fighters.naurto.attacks.length)
         console.log(indexTwo)
         let randomAttackTwo = fighters.naurto.attacks[indexTwo].attkPoints;
-        updatedHealthTwo = fighters.goku.health - randomAttackTwo ;
+         let updatedHealthTwo = fighters.goku.health - randomAttackTwo ;
         if (updatedHealthTwo <= 0){
             alert("you have won! to play again refresh the page")
         }else if(updatedHealthTwo--){
@@ -197,10 +197,18 @@ $(document).ready(function () {
     //     console.log(updatedHealthTwo)
     // }
     function defenseCallTwo() {
-        let randomDefenseFinder = math.floor(Math.random() * fighters.naurto.defense.length);
+        let randomDefenseFinder = Math.floor(Math.random() * fighters.naurto.defense.length);
         let randomDefense = fighters.naurto.defense[randomDefenseFinder].defPoints;
-
         console.log(randomDefense)
+        let findGokusAttack =  Math.floor(Math.random() * fighters.goku.attacks.length)
+        console.log(findGokusAttack);
+        let gokuAttacksYou = fighters.goku.attacks[findGokusAttack].attkPoints;
+        let newHealthTwo = gokuAttacksYou - randomDefense
+        console.log("this is your updated health" + newHealthTwo)
+        // let newHealthTwo =  Math.floor(Math.random() * fighters.goku.attacks.attkPoints[] - randomDefenseFinder);
+
+
+        // console.log(newHealthTwo)
         // gokusMove()
     }
 
