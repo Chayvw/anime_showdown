@@ -1,10 +1,7 @@
 // connecting jQuery
 $(document).ready(function () {
-    // const showFighters = document.getElementById("#selectFighter");
-    // checking connection in the browser 
-    // console.log("jQuery is working")
 
-    // where the objects for our fighters will be 
+    // For MVP for the project I 
     const fighters = {
         goku: {
             name: "Goku",
@@ -52,19 +49,9 @@ $(document).ready(function () {
             // defense: ["Solar Flare", "Power Stance"],
             imgURL: "./images/goku.jpeg",
             gokusMove: function () {
-                // if (this.isAttacking === true) {
-                //     var userMove = Math.floor(Math.random() * fighters.goku.attacks.length)
-                //    for(i = 0; i < fighters.goku.attacks.length; i++){
-                //        console.log(i)
-                //    }
+                
                 console.log(fighters.goku.attacks[userMove].attkPoints)
-                // console.log(userMove)
-                // }
-                // else {
-                //     console.log("a defensive move should be randomly picked")
-                // }
-                // i would like to add an on click event listener for when goku is selected it will render is image and have him attack or defend 
-
+                
 
             }
 
@@ -164,11 +151,11 @@ $(document).ready(function () {
         } else
             updatedHealth--
 
-        console.log("Your attack power is" + " " + randomAttack)
-        console.log("Your opponents new health" + " " + updatedHealth)
-        console.log("You picked Goku")
+        $("#gokus-attack-power").text("Your attack power is:" + " " + randomAttack)
+       $("#gokus-opp-health").text("Your opponents new health is:" + " " + updatedHealth)
+       
         chooseGoku()
-    }
+    };
 
     function attackCallTwo() {
         let indexTwo = Math.floor(Math.random() * fighters.naurto.attacks.length)
@@ -181,23 +168,14 @@ $(document).ready(function () {
             console.log(updatedHealthTwo)
 
         }
-        // updatedHealthTwo--
-        console.log("Your attack power is" + " " + randomAttackTwo)
-        console.log("Your opponents new health" + " " + updatedHealthTwo)
+        console.log("Your attack power is" + " " + randomAttackTwo);
+        console.log("Your opponents new health" + " " + updatedHealthTwo);
 
-        chooseNaurto()
-    }
-
-    // function attackCallTwo(){
-    //     let randomAttackTwo = fighters.naurto.attacks[1].attkPoints;
-    //     updatedHealthTwo = randomAttackTwo - fighters.goku.health;
-
-
-    //     console.log(randomAttackTwo)
-    //     console.log(updatedHealthTwo)
-    // }
+        chooseNaurto();
+    };
 
     function defenseCallOne() {
+        
         let randomDefenseFinderOne = Math.floor(Math.random() * fighters.goku.defense.length);
         let randomDefenseOne = fighters.goku.defense[randomDefenseFinderOne].defPoints;
         console.log(randomDefenseOne)
@@ -205,9 +183,14 @@ $(document).ready(function () {
         console.log(findNaurtosAttack);
         let naurtoAttacksYou = fighters.naurto.attacks[findNaurtosAttack].attkPoints;
         let newHealthOne = naurtoAttacksYou - randomDefenseOne;
-        console.log("this is your updated health" + " " + newHealthOne);
+        if(newHealthOne <=0){
+            alert("Unfortunately you are not the strongest fighter. Refresh and try again. Fighters current health" + " " + newHealthOne )
+        }
+       
+        else  $("#gokus-health").text("this is your updated health" + " " + newHealthOne) ;  
+        
 
-    }
+    };
     function defenseCallTwo() {
         let randomDefenseFinder = Math.floor(Math.random() * fighters.naurto.defense.length);
         let randomDefense = fighters.naurto.defense[randomDefenseFinder].defPoints;
@@ -218,35 +201,24 @@ $(document).ready(function () {
         let newHealthTwo = gokuAttacksYou - randomDefense
         console.log("this is your updated health" + newHealthTwo)
 
-    }
+    };
 
 
-    // attackCallOne()
-    // attackCallTwo()
-    // defenseCallTwo()
-
-    // fighters.goku.gokusMove()
-    // fighters.naurto.naurtosMove()
-    // console.log(fighters.goku.gokusMove())
-    // console.log()
-    // console.log(fighters.goku.attacks[0].attkPoints)
-
-    // functions that should run
     function showFighter() {
         $(".selection").attr("style", "display:block")
         // $("#selectFighter").attr("style", "display:block");
 
-    }
+    };
 
     function chooseGoku() {
         $("#naurto").attr("style", "display:none");
         // $("#deku").attr("style", "display:none");
-    }
+    };
 
     function chooseNaurto() {
         $("#goku").attr("style", "display:none");
         // $("#deku").attr("style", "display:none");
-    }
+    };
 
     // function chooseDeku() {
     //     $("#goku").attr("style", "display:none");
@@ -256,80 +228,20 @@ $(document).ready(function () {
     $("#getStarted").on("click", function () {
         showFighter()
 
-        // function showFighter(){
-        //   $("#selectFighter").style(display, "block");
-
-        // } document.getElementById("#selectFighter").style.display = block
-
-        console.log("displayed worked")
-        // }
-        // showFighter()
-    })
-    $("#goku-btn").on("click", attackCallOne)
-    // if (fighters.goku.health === 0) {
-    //     console.log("Your health has reached 0")
-    // } else {
-
-
-
-
-
-    // chooseGoku()
-    // attackCallOne()
-    // console.log("You picked Goku")
-
-
-    $("#naurto-btn").on("click", attackCallTwo);
-    // function attackCallTwo() {
-    //     let randomAttackTwo = fighters.naurto.attacks[1].attkPoints;
-    //     updatedHealthTwo = randomAttackTwo - fighters.goku.health;
-
-
-    //     console.log(randomAttackTwo)
-    //     console.log(updatedHealthTwo)
-    // }
-
-
-
-
-    // if (fighters.goku.health >= 0) {
-    //     attackCallOne()
-
-    // } else {
-
-    // }
-
-    $("#deku-btn").on("click", function () {
-        chooseDeku()
-        console.log("You picked Deku")
     });
 
-    $(".attackOptions1").on("click", function () {
-        console.log("You picked an Attack")
-    })
-
-    $(".defenseOptions1").on("click", function () {
-        console.log("You picked a counter")
-    })
+    $("#goku-btn").on("click", attackCallOne);
+    $("#naurto-btn").on("click", attackCallTwo);
 
     $("#naurto-def-btn").on("click", defenseCallTwo);
     $("#goku-def-btn").on("click", defenseCallOne);
+   
 
 
-
-    // $(("#goku").on("click" , function(){
-    //     chooseGoku()
-    //     console.log("you picked Goku")
-
-    // }));
-
-    // $(("#naruto").on("click" , function(){
-    //     chooseNaruto
-    //     console.log("you picked Naruto")
-
-    // }));
-
-
+    // $("#deku-btn").on("click", function () {
+    //     chooseDeku()
+    //     console.log("You picked Deku")
+    // });
 
 
 
