@@ -177,7 +177,7 @@ $(document).ready(function () {
         let randomDefenseOne = fighters.goku.defense[randomDefenseFinderOne].defPoints;
         // console.log(randomDefenseOne);
         let findNaurtosAttack = Math.floor(Math.random() * fighters.naurto.attacks.length);
-        let randomDefenseName = fighters.goku.defense[randomDefenseFinder].name;
+        let randomDefenseName = fighters.goku.defense[randomDefenseFinderOne].name;
         // console.log(findNaurtosAttack);
         let naurtoAttacksYou = fighters.naurto.attacks[findNaurtosAttack].attkPoints;
         let newHealthOne = naurtoAttacksYou - randomDefenseOne;
@@ -186,8 +186,8 @@ $(document).ready(function () {
         }
 
         else 
-        $("#gokus-defensive-choice")
-        $("#gokus-health").text("this is your updated health" + " " + newHealthOne);
+        $("#gokus-defensive-choice").text("Your fighter chose:" + " " + randomDefenseName);
+        $("#gokus-health").text("this is your updated health:" + " " + newHealthOne);
 
 
     };
@@ -196,9 +196,8 @@ $(document).ready(function () {
     function defenseCallTwo() {
         let randomDefenseFinder = Math.floor(Math.random() * fighters.naurto.defense.length);
         let randomDefense = fighters.naurto.defense[randomDefenseFinder].defPoints;
-        console.log(randomDefense)
+        
         let findGokusAttack = Math.floor(Math.random() * fighters.goku.attacks.length)
-        console.log(findGokusAttack);
         let gokuAttacksYou = fighters.goku.attacks[findGokusAttack].attkPoints;
         let newHealthTwo = gokuAttacksYou - randomDefense
         if (newHealthTwo < 0) {
