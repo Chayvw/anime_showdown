@@ -12,18 +12,26 @@ $(document).ready(function () {
             health: 100,
             attacks: [{
                 name: "spirit bomb",
-                attkPoints: 90
+                attkPoints: 100
 
             },
 
             {
                 name: "attack 2",
-                attkPoints: 20
+                attkPoints: 50
             },
 
             {
                 name: "attack 3",
                 attkPoints: 85
+            },
+            {
+                name: "attack 4",
+                attkPoints: 100
+            },
+            {
+                name: "attack 5",
+                attkPoints: 50
             }
 
             ],
@@ -79,6 +87,14 @@ $(document).ready(function () {
             {
                 name: "attack 6",
                 attkPoints: 100
+            },
+            {
+                name: "attack 7",
+                attkPoints: 100
+            },
+            {
+                name: "attack 8",
+                attkPoints: 10
             }
 
             ],
@@ -142,11 +158,18 @@ $(document).ready(function () {
         let randomAttack = fighters.goku.attacks[indexOne].attkPoints;
         updatedHealth = fighters.naurto.health - randomAttack ;
         
+        
+        if (updatedHealth <= 0){
+            alert("you have won! to play again refresh the page")
+        }else 
+        updatedHealth--
+        
         console.log("Your attack power is" + " " + randomAttack)
         console.log("Your opponents new health" + " " + updatedHealth)
         console.log("You picked Goku")
         chooseGoku()
     }
+    
     function attackCallTwo() {
         let indexTwo = Math.floor(Math.random() * fighters.naurto.attacks.length)
         console.log(indexTwo)
@@ -154,8 +177,11 @@ $(document).ready(function () {
         updatedHealthTwo = fighters.goku.health - randomAttackTwo ;
         if (updatedHealthTwo <= 0){
             alert("you have won! to play again refresh the page")
-        }else
-        updatedHealthTwo--
+        }else if(updatedHealthTwo--){
+            console.log(updatedHealthTwo)
+
+        }
+        // updatedHealthTwo--
         console.log("Your attack power is" + " " + randomAttackTwo)
         console.log("Your opponents new health" + " " + updatedHealthTwo)
         
@@ -171,13 +197,16 @@ $(document).ready(function () {
     //     console.log(updatedHealthTwo)
     // }
     function defenseCallTwo() {
-        let randomDefense = fighters.naurto.defense[1];
-        // console.log(randomDefense)
+        let randomDefenseFinder = math.floor(Math.random() * fighters.naurto.defense.length);
+        let randomDefense = fighters.naurto.defense[randomDefenseFinder].defPoints;
+
+        console.log(randomDefense)
+        // gokusMove()
     }
 
     // attackCallOne()
     // attackCallTwo()
-    defenseCallTwo()
+    // defenseCallTwo()
 
     // fighters.goku.gokusMove()
     // fighters.naurto.naurtosMove()
@@ -265,6 +294,10 @@ $(".attackOptions1").on("click", function () {
 $(".defenseOptions1").on("click", function () {
     console.log("You picked a counter")
 })
+
+$("#goku-def-btn").on("click",defenseCallTwo)
+
+
 
     // $(("#goku").on("click" , function(){
     //     chooseGoku()
