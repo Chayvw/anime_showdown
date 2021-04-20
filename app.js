@@ -14,17 +14,17 @@ $(document).ready(function () {
             },
 
             {
-                name: "attack 2",
-                attkPoints: 50
+                name: "Ultra Instinct",
+                attkPoints: 80
             },
 
             {
-                name: "attack 3",
-                attkPoints: 85
+                name: "Kamehameha",
+                attkPoints: 70
             },
             {
-                name: "attack 4",
-                attkPoints: 100
+                name: "Kaio-Ken",
+                attkPoints: 60
             },
             {
                 name: "attack 5",
@@ -35,18 +35,18 @@ $(document).ready(function () {
             isAttacking: true,
             defense: [{
                 name: "Solar Flare",
-                defPoints: 80
-            },
-            {
-                name: "Power Stance",
                 defPoints: 45
             },
             {
-                name: "Def 3",
-                defPoints: 22
+                name: "Power Stance",
+                defPoints: 60
+            },
+            {
+                name: "Instant Transmission",
+                defPoints: 100
             }
             ],
-            // defense: ["Solar Flare", "Power Stance"],
+            
             imgURL: "./images/goku.jpeg",
             gokusMove: function () {
                 
@@ -62,59 +62,48 @@ $(document).ready(function () {
             health: 100,
             attacks: [{
 
-                name: "attack 4",
-                attkPoints: 45
+                name: "Rasengan",
+                attkPoints: 75
             },
 
             {
-                name: "attack 5",
-                attkPoints: 88
-            },
-
-            {
-                name: "attack 6",
+                name: "Tailed Beast Rasenshuriken",
                 attkPoints: 100
+            },
+
+            {
+                name: "Clone Technique",
+                attkPoints: 50
             },
             {
                 name: "attack 7",
                 attkPoints: 100
             },
-            {
-                name: "attack 8",
-                attkPoints: 10
-            }
+            
 
             ],
-            // attacks: ["Rasengan", "Tailed Beast Rasenshuriken"],
+        
             isAttacking: true,
             defense: [{
-                name: "defense",
-                defPoints: 45
+                name: "Clone Technique",
+                defPoints: 90
             },
             {
-                name: "def 2",
+                name: "pervy clones",
                 defPoints: 60
             },
             {
                 name: "Def 3",
-                defPoints: 78
+                defPoints: 100
+            },
+            {
+                name: "Sage Mode",
+                defPoints: 80
             }
             ],
             isDefending: false,
             imgURL: "./images/naruto.jpeg",
-            // naurtosMove: function () {
-            //     if (this.isAttacking === true) {
-            //         var randomNaurtoAttack = Math.floor(Math.random() * fighters.naurto.attacks.length)
-            //         console.log(randomNaurtoAttack)
-            //         console.log(fighters.naurto.attacks[randomNaurtoAttack]);
-
-            //     }
-            //     else {
-            //         console.log()
-            //     }
-
-
-            // }
+            
 
         },
         // izukuMidoriya: {
@@ -148,6 +137,7 @@ $(document).ready(function () {
 
         if (updatedHealth <= 0) {
             alert("you have won! to play again refresh the page")
+           
         } else
             updatedHealth--
 
@@ -168,8 +158,8 @@ $(document).ready(function () {
             console.log(updatedHealthTwo)
 
         }
-        console.log("Your attack power is" + " " + randomAttackTwo);
-        console.log("Your opponents new health" + " " + updatedHealthTwo);
+        $("#naurto-attack-power").text("Your attack power is:" + " " + randomAttackTwo)
+       $("#naurto-opp-health").text("Your opponents new health is:" + " " + updatedHealthTwo)
 
         chooseNaurto();
     };
