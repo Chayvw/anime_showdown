@@ -3,6 +3,7 @@
 }
 .heading{
     text-align: center;
+    height: 50%;
 }
 .card{
     display: flex   ;
@@ -12,6 +13,40 @@
     float: right;
     text-align:end;
     width: 100%;
+}
+
+#goku-btn{
+    border-radius: 30%;
+    padding: 10px;
+    background-color: mediumblue;
+}
+
+#goku-def-btn{
+    border-radius: 30%;
+    padding: 10px;
+    background-color: mediumblue;
+}
+#naurto-btn{
+    border-radius: 30%;
+    padding: 10px;
+    background-color: red;
+}
+#naurto-def-btn{
+    border-radius: 30%;
+    padding: 10px;
+    background-color: red;
+}
+
+#getStarted{
+    width: 540px;
+    height: 800px;
+    justify-content:stretch;
+    text-decoration-color: violet;
+    background-image: url(./images/warrior.jpeg);
+}
+
+h4{
+    font-family: serif;
 }
 
 
