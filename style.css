@@ -43,10 +43,16 @@
     justify-content:stretch;
     text-decoration-color: violet;
     background-image: url(./images/warrior.jpeg);
+    background-size: 40%;
+    background-attachment: scroll;
 }
 
 h4{
     font-family: serif;
+}
+#instructions{
+    font-family: serif;
+    font-weight: bolder;
 }
 
 
